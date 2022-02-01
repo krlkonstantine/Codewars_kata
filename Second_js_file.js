@@ -5,3 +5,5 @@ let function hello(msg:string){
 }
 
 hello(hahaMessage)
+
+console.log("Hello Hello Hello")

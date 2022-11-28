@@ -1,9 +1,15 @@
-const hahaMessage = "he he he LOOOOOL"
+const capitalize = (s) => s.charAt(0).toUpperCase() + s.slice(1).toLowerCase();
 
-let function hello(msg:string){
-    alert(msg)
+function hello(name) {
+    if (name === "") {
+        return ("Hello, World!")
+    } else if (typeof name === 'string' || name instanceof String) {
+        return ("Hello, " + capitalize(name) + "!")
+    }
 }
 
-hello(hahaMessage)
+hello("susan")
 
-console.log("Hello Hello Hello")
+function hello(name) {
+    return `Hello, ${name ? name[0].toUpperCase() + name.slice(1).toLowerCase() : "World"}`)
+}

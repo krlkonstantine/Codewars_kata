@@ -220,7 +220,7 @@ name = "Hanneh" // {name : "Hanneh"} - теперь объект будет во
 
 //НАПИШИ ПРОМИС!
 //как написать промис?
-return new Promise(()=>{
+//return new Promise(()=>{
 
 })
 //тоесть ретурн новый промис, которй принимает коллбэк, а коллбэк уже принимает res rej
@@ -239,4 +239,64 @@ async function bar (){
 
 //очередь синхронных операций
 //сначала всегда в приоритете идет Render (css и все такое)
-//потом уже макротаски и микротаски (промисы)
+//потом стек операций
+// потом уже микротаски (промисы)
+// и последние макротаски (setTimeOut)
+
+//lesson 12 THIS
+
+//!USE-STRICT -  this будет some object
+//USE-STRICT -   this may be any data type
+
+//Первое место где может увидеть this это глобальный скоуп
+//что значит глобальный скоуп?
+//global scope - this = global obj
+//this можем увидеть либо в функции либо в глобальном скоупе
+
+
+//this если вызван от имени какого-то объекта, то он равен тому что слева от точки
+//1. global scope - this = global obj
+//2. function (not arrow!) -> важно как именно вызвали функцию
+    //есливызвана с помощью new, то this всегда равен новому объекту
+    // быть вызвана с помощью методов функции call bind apply
+    // быть вызвана от имени какого-то объекта
+    // обычный вызов ->undefined(!use-strict -> window)
+    //потому что в нестрогом режиме this всегда должен быть объектом
+//3. arrow functions ---> this берется из вненего скоупа
+//единственное место это или обычная fnc или глоб.скоуп
+
+/*
+function foo23(a,b){
+    console.log(this)
+    console.log(a,b)
+}
+
+foo23.call({name:"Alex"},a,b)
+
+foo23.apply({name:"Pedro"},[a,b])
+
+foo23.bind({name:"Alyoshka"},1,2)()
+
+foo23.bind({name:"Alyoshka"})(1,2)
+
+foo23.bind({name:"Alyoshka"},1)(2)*/
+
+
+//======= ключеве слово new ========
+function userConstructor(newUsrName,newUsrAge){
+    const newUser = {}
+    newUser.name =  newUsrName
+    newUser.age =  newUsrAge
+    return newUser
+}
+const alex = userConstructor("Alex",23)
+const rita = userConstructor("Rita",18)
+//new userConstructor() //вызванная как конструтор
+
+const foofnc = () => {
+    console.log(this)
+}
+//в строгом режиме this будет чем угодно
+//если в нестрогом this теряется, например проходит через forEach
+//то ему присваиваться глобальный объект и так программа хотя бы не падает
+//в классах по дефолту стоит строгий режим

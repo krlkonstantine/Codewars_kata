@@ -1,66 +1,45 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
-import { Krl_Button } from './index.ts'
+import { CardsInput } from './index.ts'
 
 const meta = {
-  title: 'Components/Krl_Button',
-  component: Krl_Button,
-  id: 'components-krl-button',
+  title: 'Components/input',
+  component: CardsInput,
+  id: 'components-input',
   tags: ['autodocs'],
   argTypes: {
     variant: {
-      options: ['primary', 'secondary', 'tertiary', 'link'],
+      options: ['standard', 'password', 'search'],
       control: { type: 'radio' },
     },
   },
-} satisfies Meta<typeof Krl_Button>
+} satisfies Meta<typeof CardsInput>
 
 export default meta
 type Story = StoryObj<typeof meta>
 
-export const Primary: Story = {
+export const Standard: Story = {
   args: {
-    variant: 'primary',
-    children: 'Primary Button',
+    label: 'Just a label',
+    variant: 'standard',
+    placeholder: 'Input',
     disabled: false,
   },
 }
 
-export const Secondary: Story = {
+export const Password: Story = {
   args: {
-    variant: 'secondary',
-    children: 'Secondary Button',
+    required: true,
+    label: 'Password',
+    variant: 'password',
+    placeholder: 'Enter your password',
     disabled: false,
   },
 }
-export const Tertiary: Story = {
+export const Search: Story = {
   args: {
-    variant: 'tertiary',
-    children: 'Tertiary Button',
+    variant: 'search',
+    placeholder: 'Type in for search',
     disabled: false,
-  },
-}
-export const Link: Story = {
-  args: {
-    variant: 'link',
-    children: 'Tertiary Button',
-    disabled: false,
-  },
-}
-
-export const FullWidth: Story = {
-  args: {
-    variant: 'primary',
-    children: 'Full Width Button',
-    disabled: false,
-    fullWidth: true,
-  },
-}
-export const AsLink: Story = {
-  args: {
-    variant: 'primary',
-    children: 'Link that looks like a button',
-    as: 'a',
-    href: 'google.com',
   },
 }

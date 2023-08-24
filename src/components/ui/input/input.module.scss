@@ -1,23 +1,69 @@
+.inputContainer {
+  background: yellowgreen;
+  width: 200px;
+  position: relative;
+
+  .watchPassButton {
+    position: absolute;
+    top: 25px;
+    right: 5px
+  }
+
+  .label {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+
+    .search {
+      all: unset;
+      margin: 0 30px;
+      color: black;
+    }
+
+  }
+ .inputIconsContainer{
+   position: relative;
+
+   .inputSearchIcon{
+     position: absolute;
+     top: 2px;
+     left: 4px;
+     z-index: 2;
+
+   }
+   .inputCleanFieldIcon{
+     position: absolute;
+     top: 2px;
+     right: 4px;
+     z-index: 2;
+   }
+
+
+ }
+
+
+
+}
+
+
 .standard {
-  all:unset;
+  all: unset;
   border: 1px solid #000;
-  background-color: red;
 }
 
 .password {
-  all:unset;
+  all: unset;
   border: 1px solid #000;
   background-color: green;
 }
 
 .search {
-  all:unset;
+  all: unset;
   border: 1px solid #000;
-  background-color: blue;
 }
 
 .inputWithIcon {
-  all:unset;
+  all: unset;
   border: 1px solid #000;
   background-color: yellow;
 }
@@ -25,4 +71,8 @@
 .fullWidth {
 
   width: 100%;
+}
+
+.error {
+  color: red;
 }

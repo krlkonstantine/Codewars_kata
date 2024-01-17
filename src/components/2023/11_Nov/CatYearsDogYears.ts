@@ -31,4 +31,4 @@ export function humanYearsCatYearsDogYears(humanYears: number): [number, number,
 }
 
 
-console.log(humanYearsCatYearsDogYears(10))
+console.log(humanYearsCatYearsDogYears(4))
